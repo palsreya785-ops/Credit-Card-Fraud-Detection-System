@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+
+np.random.seed(42)
+
+n = 5000
+
+data = {
+    "amount": np.random.uniform(10, 5000, n),
+    "time": np.random.randint(0, 24, n),
+    "location": np.random.randint(1, 100, n),
+    "is_fraud": np.random.choice([0, 1], n, p=[0.95, 0.05])
+}
+
+df = pd.DataFrame(data)
+df.to_csv("data/synthetic_data.csv", index=False)
+
+print("Dataset created!")
